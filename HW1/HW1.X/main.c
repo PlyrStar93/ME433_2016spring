@@ -1,6 +1,8 @@
 #include<xc.h>           // processor SFR definitions
 #include<sys/attribs.h>  // __ISR macro
 
+#define SYS_FREQ 48000000   // system frequency
+
 // DEVCFG0
 #pragma config DEBUG = OFF // no debugging
 #pragma config JTAGEN = OFF // no jtag
@@ -63,13 +65,17 @@ int main() {
     while(1) {
 	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
 		// remember the core timer runs at half the CPU speed
-        if (PORTBbits.RB4 == 1)
+        if (PORTBbits.RB4 == 1)                     // button not pushed
         {
-            
+            if (_CP0_GET_COUNT() >= SYS_FREQ /2/2)  // blink at 1 Hz
+            {
+                LATAbits.LATA4 = !LATAbits.LATA4;   // invert previous value
+                _CP0_SET_COUNT(0);                  // reset counter
+            }
         }
-        else
+        else                                        // button pushed
         {
-            
+            LATAbits.LATA4 = 0;                     // force set to off
         }
     }
     
