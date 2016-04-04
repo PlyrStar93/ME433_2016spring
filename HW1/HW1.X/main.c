@@ -63,8 +63,8 @@ int main() {
     _CP0_SET_COUNT(0);      // initialize counter
     
     while(1) {
-	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
-		// remember the core timer runs at half the CPU speed
+        // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
+        // remember the core timer runs at half the CPU speed
         if (PORTBbits.RB4 == 1)                     // button not pushed
         {
             if (_CP0_GET_COUNT() >= SYS_FREQ /2/2 /1000)  // blink at 1k Hz
