@@ -54,11 +54,11 @@ int main() {
     DDPCONbits.JTAGEN = 0;
     
     // do your TRIS and LAT commands here
-    TRISAbits.TRISA4 = 0;
-    TRISBbits.TRISB4 = 1;
+    TRISAbits.TRISA4 = 0;   // A4 (port 12) : output
+    TRISBbits.TRISB4 = 1;   // B4 (port 11) : input
     
     __builtin_enable_interrupts();
-    _CP0_SET_COUNT(0);
+    _CP0_SET_COUNT(0);      // initialize counter
     
     while(1) {
 	    // use _CP0_SET_COUNT(0) and _CP0_GET_COUNT() to test the PIC timing
