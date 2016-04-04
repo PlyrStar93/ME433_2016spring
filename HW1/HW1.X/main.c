@@ -67,7 +67,7 @@ int main() {
 		// remember the core timer runs at half the CPU speed
         if (PORTBbits.RB4 == 1)                     // button not pushed
         {
-            if (_CP0_GET_COUNT() >= SYS_FREQ /2/2)  // blink at 1 Hz
+            if (_CP0_GET_COUNT() >= SYS_FREQ /2/2 /1000)  // blink at 1k Hz
             {
                 LATAbits.LATA4 = !LATAbits.LATA4;   // invert previous value
                 _CP0_SET_COUNT(0);                  // reset counter
