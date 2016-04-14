@@ -148,9 +148,8 @@
 <wire x1="49.75" y1="48" x2="49.75" y2="35.5" width="0.1" layer="21"/>
 <wire x1="49.75" y1="35.5" x2="47.2" y2="35.5" width="0.1" layer="21"/>
 <wire x1="47.2" y1="35.5" x2="47.2" y2="48" width="0.1" layer="21"/>
-<text x="28" y="43" size="1.016" layer="21">Red</text>
+<text x="27.5" y="43" size="1.016" layer="21">Red</text>
 <text x="8" y="6" size="1.016" layer="21">Grn</text>
-<text x="9.5" y="3.5" size="1.778" layer="21">330</text>
 <text x="8.5" y="1" size="1.27" layer="21">330</text>
 <text x="26.5" y="47.4" size="1.27" layer="21">330</text>
 <text x="9.65" y="36.3" size="1.27" layer="21">10k</text>
@@ -163,15 +162,15 @@
 <text x="3.5" y="20.5" size="1.778" layer="21">A4</text>
 <text x="3.5" y="18" size="1.778" layer="21">+3V3</text>
 <text x="3.5" y="15.5" size="1.778" layer="21">GND</text>
-<text x="42.5" y="15" size="1.778" layer="21">GND</text>
-<text x="42.5" y="17.5" size="1.778" layer="21">+5V</text>
-<text x="44" y="20" size="1.778" layer="21">B7</text>
-<text x="44" y="22.5" size="1.778" layer="21">B8</text>
-<text x="44" y="25" size="1.778" layer="21">B9</text>
-<text x="42.75" y="27.65" size="1.778" layer="21">B13</text>
-<text x="42.75" y="30.25" size="1.778" layer="21">B14</text>
-<text x="42.8" y="32.8" size="1.778" layer="21">B15</text>
-<text x="34.3" y="47.25" size="1.27" layer="21">RST</text>
+<text x="42" y="15" size="1.778" layer="21">GND</text>
+<text x="42" y="17.5" size="1.778" layer="21">+5V</text>
+<text x="43.5" y="20" size="1.778" layer="21">B7</text>
+<text x="43.5" y="22.5" size="1.778" layer="21">B8</text>
+<text x="43.5" y="25" size="1.778" layer="21">B9</text>
+<text x="42.25" y="27.65" size="1.778" layer="21">B13</text>
+<text x="42.25" y="30.25" size="1.778" layer="21">B14</text>
+<text x="42.3" y="32.8" size="1.778" layer="21">B15</text>
+<text x="33.8" y="47.25" size="1.27" layer="21">RST</text>
 <text x="2.65" y="8.9" size="1.27" layer="21" rot="R90">USR</text>
 <text x="7" y="48" size="1.27" layer="21">PWR</text>
 <polygon width="0.4064" layer="21">
@@ -184,12 +183,12 @@
 <text x="36.5" y="35" size="1.27" layer="21" rot="R90">0.1u</text>
 <text x="38" y="36.5" size="1.27" layer="21" rot="R90">0.1u</text>
 <text x="13.5" y="40.5" size="1.27" layer="21" rot="R90">0.1u</text>
-<text x="40" y="26" size="1.27" layer="21" rot="R180">0.1u</text>
+<text x="40.5" y="26" size="1.27" layer="21" rot="R180">0.1u</text>
 <text x="46.5" y="41.5" size="1.27" layer="21" rot="R90">10u</text>
-<text x="39" y="18" size="1.27" layer="21" rot="R180">10u</text>
-<text x="35.5" y="9" size="1.778" layer="21">ME433
+<text x="39.5" y="18" size="1.27" layer="21" rot="R180">10u</text>
+<text x="33.5" y="9" size="1.778" layer="21">ME433
 PIC32MX250</text>
-<text x="35.5" y="4" size="1.778" layer="21">SIDA LIU
+<text x="33.5" y="4" size="1.778" layer="21">SIDA LIU
 2016-4-14</text>
 </plain>
 <libraries>
