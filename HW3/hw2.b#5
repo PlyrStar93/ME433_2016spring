@@ -960,8 +960,12 @@ Your Eurocircuits Team
 <signal name="N$9">
 <contactref element="CR" pad="1"/>
 <contactref element="U$1" pad="9"/>
-<wire x1="34.15" y1="20.77" x2="34.15" y2="19.69" width="0.4064" layer="16"/>
-<wire x1="34.15" y1="19.69" x2="29.73" y2="15.27" width="0.4064" layer="16"/>
+<wire x1="29.73" y1="15.27" x2="29.73" y2="16.93" width="0.4064" layer="16"/>
+<wire x1="29.73" y1="16.93" x2="30.4" y2="17.6" width="0.4064" layer="16"/>
+<wire x1="30.4" y1="17.6" x2="32.8" y2="17.6" width="0.4064" layer="16"/>
+<wire x1="32.8" y1="17.6" x2="34" y2="18.8" width="0.4064" layer="16"/>
+<wire x1="34" y1="18.8" x2="34" y2="20.62" width="0.4064" layer="16"/>
+<wire x1="34" y1="20.62" x2="34.15" y2="20.77" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$10">
 <contactref element="USER_BUTTON" pad="2"/>

@@ -8,7 +8,7 @@
 </settings>
 <grid distance="0.2" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.04" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -977,9 +977,6 @@ Your Eurocircuits Team
 <contactref element="R3" pad="2"/>
 <contactref element="J3" pad="5"/>
 <wire x1="12.16" y1="2" x2="12.16" y2="1.56" width="0.4064" layer="16"/>
-<wire x1="12.16" y1="1.56" x2="14.2" y2="3.6" width="0.4064" layer="16"/>
-<wire x1="14.2" y1="3.6" x2="23.64" y2="3.6" width="0.4064" layer="16"/>
-<wire x1="23.64" y1="3.6" x2="25.71" y2="1.53" width="0.4064" layer="16"/>
 <wire x1="30.18" y1="6" x2="25.71" y2="1.53" width="0.4064" layer="1"/>
 <wire x1="38.61" y1="14.63" x2="38.61" y2="17.61" width="0.4064" layer="16"/>
 <wire x1="38.61" y1="17.61" x2="39.2" y2="18.2" width="0.4064" layer="16"/>
@@ -989,6 +986,10 @@ Your Eurocircuits Team
 <wire x1="34.4" y1="6" x2="38.6" y2="10.2" width="0.4064" layer="1"/>
 <wire x1="38.6" y1="10.2" x2="38.6" y2="14.62" width="0.4064" layer="1"/>
 <wire x1="38.6" y1="14.62" x2="38.61" y2="14.63" width="0.4064" layer="1"/>
+<wire x1="12.16" y1="2" x2="12.16" y2="2.76" width="0.4064" layer="16"/>
+<wire x1="12.16" y1="2.76" x2="13.8" y2="4.4" width="0.4064" layer="16"/>
+<wire x1="13.8" y1="4.4" x2="22.84" y2="4.4" width="0.4064" layer="16"/>
+<wire x1="22.84" y1="4.4" x2="25.71" y2="1.53" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$12">
 <contactref element="U$1" pad="12"/>
