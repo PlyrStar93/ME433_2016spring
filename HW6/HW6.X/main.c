@@ -150,7 +150,6 @@ int main(void) {
     i2c_master_ack(1);
     i2c_master_stop();
     
-    //input = 0x69;
     for(i=0;i<8;i++)
     {
         message[i] = (input>>i) && 0x01; 
