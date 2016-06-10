@@ -55,7 +55,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "app.h"
 
-
+int pos;
+int txFlag=1;
+char rx[50];
+int pos;
+int qq;
+int ii;
+char tx[50];
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
@@ -210,10 +216,10 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * eventData, uintp
              * This means that USB device layer is about to deininitialize
              * all function drivers. Update LEDs to indicate
              * reset/deconfigured state. */
-
-            BSP_LEDOn ( APP_USB_LED_1 );
-            BSP_LEDOn ( APP_USB_LED_2  );
-            BSP_LEDOff( APP_USB_LED_3  );
+            
+            //BSP_LEDOn ( APP_USB_LED_1 );
+            //BSP_LEDOn ( APP_USB_LED_2  );
+            //BSP_LEDOff( APP_USB_LED_3  );
 
             appData.isConfigured = false;
 
@@ -226,10 +232,11 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * eventData, uintp
             if (configurationValue == 1)
             {
                 /* The device is in configured state. Update LED indication */
-
-                BSP_LEDOff( APP_USB_LED_1 );
-                BSP_LEDOff( APP_USB_LED_2  );
-                BSP_LEDOn( APP_USB_LED_3  );
+                
+                /* comment out all BSP_LEDOn(), BSP_LEDOff() function calls */
+                //BSP_LEDOff( APP_USB_LED_1 );
+                //BSP_LEDOff( APP_USB_LED_2  );
+                //BSP_LEDOn( APP_USB_LED_3  );
 
                 /* Register the CDC Device application event handler here.
                  * Note how the appData object pointer is passed as the
@@ -247,9 +254,9 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * eventData, uintp
         case USB_DEVICE_EVENT_SUSPENDED:
 
             /* Update LEDs */
-            BSP_LEDOff ( APP_USB_LED_1 );
-            BSP_LEDOn ( APP_USB_LED_2  );
-            BSP_LEDOn( APP_USB_LED_3  );
+            //BSP_LEDOff ( APP_USB_LED_1 );
+            //BSP_LEDOn ( APP_USB_LED_2  );
+            //BSP_LEDOn( APP_USB_LED_3  );
             break;
 
         
@@ -436,10 +443,21 @@ void APP_Tasks ( void )
             if(appData.isReadComplete == true)
             {
                 appData.isReadComplete = false;
-                DRV_USART_Write(appData.usartHandle, appData.readBuffer, appData.readLength);
+                //DRV_USART_Write(appData.usartHandle, appData.readBuffer, appData.readLength);
                 USB_DEVICE_CDC_Read (appData.cdcInstance, &appData.readTransferHandle,
                         appData.readBuffer, APP_READ_BUFFER_SIZE);
-                
+                                for(ii=0; ii<appData.readLength; ii++) {
+                    if (appData.readBuffer[ii] == '\n' || appData.readBuffer[ii] == '\r'){
+                        rx[pos] = 0;
+                        txFlag = 1;
+                        pos = 0;
+                        sscanf(rx,"%d",&qq);
+                    }
+                    else {
+                        rx[pos] = appData.readBuffer[ii];
+                        pos++;
+                    }
+                }
             }
 
             appData.state = APP_STATE_CHECK_UART_RECEIVE;
@@ -453,15 +471,26 @@ void APP_Tasks ( void )
             }
 
             /* Check if a character was received on the UART */
-
+            /* 
             if(DRV_USART_Read(appData.usartHandle, appData.uartReceivedData, 1) > 0)
-            {
+            { */
                 /* We have received data on the UART */
-
+            /* 
                 USB_DEVICE_CDC_Write(0, &appData.writeTransferHandle,
                         appData.uartReceivedData, 1,
                         USB_DEVICE_CDC_TRANSFER_FLAGS_DATA_COMPLETE);
 
+            } */
+            
+            if (txFlag == 1) {
+                char len = sprintf(tx,"qq = %d\r\n",qq);
+                for (ii = 0;ii<len;ii++) {
+                    appData.uartReceivedData[ii]=tx[ii];
+                }
+                USB_DEVICE_CDC_Write(0, &appData.writeTransferHandle,
+                        appData.uartReceivedData, len,
+                        USB_DEVICE_CDC_TRANSFER_FLAGS_DATA_COMPLETE);
+                txFlag = 0;
             }
 
             appData.state = APP_STATE_CHECK_CDC_READ;
